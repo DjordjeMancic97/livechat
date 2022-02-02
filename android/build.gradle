@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:4.1.2'
     }
 }
 
@@ -16,7 +16,16 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io' }
+        maven {
+            url "https://api.bitbucket.org/2.0/repositories/clanq/chat-window-android-fork/src/master"
+            credentials {
+                username "DjordjeMancic"
+                password "aaf09073"
+            }
+            authentication{
+                basic(BasicAuthentication)
+            }
+        }
     }
 }
 
@@ -34,5 +43,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.DjordjeMancic97:chat-window-android:v2.2.3'
+    implementation(group: 'de.clanq.chat', name: 'chat-window', version: '1.0.0', ext: 'aar')
 }
